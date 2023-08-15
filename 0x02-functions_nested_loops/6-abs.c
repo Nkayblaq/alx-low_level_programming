@@ -3,7 +3,7 @@
 /**
  * _abs - fuction to find absolute value of a number
  * @i: function parameter
- * Return -i or i
+ * Return: returns -i or i
  */
 
 int _abs(int i)
