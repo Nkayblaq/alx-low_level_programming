@@ -18,7 +18,7 @@ void print_buffer(char *b, int size)
 {
 	int i = 0, j;
 
-	if (size < 0)
+	if (size <= 0)
 	{
 		printf("\n");
 		return;
