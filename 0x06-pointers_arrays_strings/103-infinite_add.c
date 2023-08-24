@@ -1,62 +1,46 @@
-/* add_strings.c */
-
 #include "main.h"
 
 /**
- * add_strings - Adds the numbers stored in two strings.
- * @n1: The string containing the first number to be added.
- * @n2: The string containing the second number to be added.
- * @r: The buffer to store the result.
- * @r_index: The current index of the buffer.
+ * infinite_add - Adds two numbers
+ * @n1: First number as a string
+ * @n2: Second number as a string
+ * @r: Buffer to store the result
+ * @size_r: Size of the buffer
  *
- * Return: If r can store the sum - a pointer to the result.
- *         If r cannot store the sum - 0.
- */
-char *add_strings(char *n1, char *n2, char *r, int r_index);
-
-/**
- * infinite_add - Adds two numbers stored as strings to a buffer.
- * Assumes positive numbers and that only digits are in the strings.
- * If result fits in the buffer, returns pointer to result.
- * If result does not fit, returns `0`.
- *
- * @n1: First number to be added.
- * @n2: Second number to be added.
- * @r: Buffer to store result.
- * @size_r: Size of the buffer.
- *
- * Return: Pointer to result, or `0` if buffer is too small.
+ * Return: Pointer to the result
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
+    int carry = 0;
     int r_index = size_r - 2;
-    char *result;
+    
+    int len1 = strlen(n1);
+    int len2 = strlen(n2);
 
-    while (*n1)
+    r[size_r - 1] = '\0';
+
+    while (r_index >= 0 || carry)
     {
-        if (r_index < 0)
-            return (0);
+        int digit1 = (len1 > 0) ? (n1[len1 - 1] - '0') : 0;
+        int digit2 = (len2 > 0) ? (n2[len2 - 1] - '0') : 0;
 
-        n1++;
-        r_index--;
+        int sum = digit1 + digit2 + carry;
+
+        carry = sum / 10;
+        
+        if (r_index >= 0) {
+            int digit = sum % 10;
+            r[r_index] = digit + '0';
+            r_index--;
+        }
+
+        if (len1 > 0) len1--;
+        if (len2 > 0) len2--;
     }
 
-    while (*n2)
-    {
-        if (r_index < 0)
-            return (0);
-
-        n2++;
-        r_index--;
-    }
-
-    if (r_index < 0)
-        return (0);
-
-    result = add_strings(n1 - 1, n2 - 1, r, r_index);
-
-    if (!result)
-        return (0);
-
-    return (result);
+    if (r_index >= 0)
+        return (r + r_index + 1);
+    else
+        return (r);
 }
+
