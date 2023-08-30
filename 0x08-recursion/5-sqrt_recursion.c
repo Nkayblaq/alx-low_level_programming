@@ -1,5 +1,7 @@
+#include "main.h"
+
 /**
- * _sqrt_recursive - Helper function to find the square root of a number using recursion.
+ * _sqrt_recursive - Helper function to find the square root using recursion
  * @i: Guess for the square root.
  * @n: Number for which square root is being calculated.
  *
@@ -7,11 +9,11 @@
  */
 int _sqrt_recursive(int i, int n)
 {
-    if (i * i == n)
-        return i;
-    if (i > n / 2)
-        return -1;
-    return _sqrt_recursive(i + 1, n);
+	if (i * i == n)
+		return (i);
+	if (i > n / 2)
+		return (-1);
+	return (_sqrt_recursive(i + 1, n));
 }
 
 /**
@@ -22,7 +24,7 @@ int _sqrt_recursive(int i, int n)
  */
 int _sqrt_recursion(int n)
 {
-    if (n == 0 || n == 1)
-        return n;
-    return _sqrt_recursive(0, n);
+	if (n == 0 || n == 1)
+		return (n);
+	return (_sqrt_recursive(0, n));
 }
