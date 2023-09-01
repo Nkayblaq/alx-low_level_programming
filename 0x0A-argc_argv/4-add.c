@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * main - a program that multiplies two numbers
+ * main - a program that adds positive numbers
  * @argc: arguments count
  * @argv: argument vector
  * Return: 0
