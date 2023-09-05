@@ -2,9 +2,12 @@
 
 /**
  * str-concat - a function that concatenates two strings
- * @s1: string 1
- * @s2: string 2
- * Return: pointer to newly allocated space
+ * @s1: the first string
+ * @s2: the second string
+ * Return: A pointer to a newly allocated string containing the concatenated
+ *         result of s1 and s2. The caller is responsible for freeing this
+ *         memory using `free()`. If memory allocation fails or if either
+ *         input string is NULL, the function returns NULL.
  */
 
 char *str_concat(char *s1, char *s2)
@@ -13,8 +16,6 @@ char *str_concat(char *s1, char *s2)
 	int s2len = 0;
 	int i;
 	char *concat_str;
-	int index, concat_index = 0,  len = 0;
-
 
 	if (s1 == NULL)
 		s1 = "";
@@ -33,5 +34,6 @@ char *str_concat(char *s1, char *s2)
 		concat_str[i] = s1[i];
 	for (i = 0; s2[i] != '\0'; i++)
 		concat_str[s1len + i] = s2[i];
+
 	return (concat_str);
 }
