@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdlib.h>
 
 /**
  * word_count - Count number of words separated by spaces in a string
