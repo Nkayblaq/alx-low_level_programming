@@ -4,7 +4,7 @@
  * malloc_checked - a function that allocates memory using malloc
  * @b: size of memory to allocate
  *
- * Retun: On success, a pointer to the newly allocated memory.
+ * Return: On success, a pointer to the newly allocated memory.
  *         On failure, the program exits with a status code of 98.
  */
 
